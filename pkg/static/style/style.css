@@ -1,0 +1,137 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none !important;
+    color: #fff;
+    list-style-type: none;
+    font-family: 'Exo 2', sans-serif;
+}
+
+body {
+    height: max-content;
+    background-color: #141414 !important;
+    /* background-image: url("../images/Wizkid spiderverse.jpg"); */
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.overlay {
+    height: 100vh;
+    background: rgba(0, 0, 0, .5);
+}
+
+.head-section {
+    position: relative;
+    left: 5%;
+    /* bottom: 2vh; */
+    height: max-content;
+    /* border: 1px solid red; */
+    width: max-content;
+}
+
+.head-section h2 {
+    font-size: 3em;
+}
+
+.intro {
+    color: #fff;
+}
+
+@keyframes changeText {
+    0%, 25%, 50%, 75%, 100% {
+        opacity: 1;
+    }
+}
+
+
+.intro span {
+    color: plum;
+    animation: changeText 20s infinite; /* Add this line */
+}
+
+
+.social {
+    top: 0;
+    /* border: 1px solid red; */
+    height: max-content;
+    width: max-content;
+    position: relative;
+    left: 5%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.social svg {
+    height: 15px;
+    width: 20px;
+    margin-right: 10px;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+
+/* .social a.twitter:hover svg.bi-twitter-x {
+    color: #1DA1F2 !important; 
+
+.social a.github:hover svg.bi-github {
+    color: #24292e; 
+}
+
+.social a.linkedin:hover svg.bi-linkedin {
+    color: #0077B5; 
+}
+
+.social a.ig:hover svg.bi-instagram {
+    color: #405DE6; 
+    fill: #ffffff; 
+}
+
+.social a.thread:hover svg.bi-threads {
+    color: #FF6F61; 
+} */
+
+.hire {
+    margin-left: 5%;
+}
+
+
+.hire button, .submit button {
+    background: plum;
+    padding: 5px 12px;
+    border-radius: 5px;
+    border: 1px solid plum;
+    cursor: pointer;
+}
+
+form {
+    max-width: 400px !important;
+    margin: 0 auto !important;
+}
+
+form input,
+form textarea {
+    width: 100% !important;
+    padding: 10px !important;
+    margin-bottom: 20px !important;
+    border: none !important;
+    border-bottom: 1px solid plum !important; /* White bottom border */
+    background-color: transparent !important;
+    color: white !important;
+    transition: border-color 0.3s ease-in-out !important;
+    border-radius: 0px !important;
+}
+
+form input:focus,
+form textarea:focus {
+    border: 1px solid plum !important;
+}
+
+form button {
+    background-color: plum !important;
+    color: white !important;
+    padding: 10px 20px !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease-in-out !important;
+}

@@ -1,0 +1,159 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Catamaran', sans-serif;
+}
+
+body {
+    background-color: #fff !important;
+}
+
+.head-cont {
+    height: 40vh;
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    background-color: #000000;
+}
+
+.profile {
+    height: 30vh;
+    /* border: 1px solid green; */
+    display: flex;
+}
+
+.profile-name {
+    height: 20vh;
+    position: relative;
+    /* border: 1px solid blue; */
+    width: 30%;
+    left: 5%;
+    top: 5vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.pro-pic-name {
+    display: flex;
+}
+
+.pic {
+    height: 10vh;
+    /* border: 1px solid red; */
+    width: 15%;
+    border-radius: 50%;
+    position: relative;
+    margin-right: 5%;
+}
+
+.pic img {
+    height: inherit;
+    width: 100%;
+    border-radius: 50%;
+}
+
+.name {
+    /* border: 1px solid green; */
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.name p {
+    font-size: 1.5em;
+}
+
+.profile-action {
+    height: 15vh;
+    position: relative;
+    top: 5vh;
+    /* border: 1px solid purple; */
+    width: 20%;
+    left: 45%;
+}
+
+.social {
+    position: relative;
+    top: 5vh !important;
+}
+
+.social svg {
+    height: 30px !important;
+    margin-right: 30px !important;
+}
+
+.nav {
+    height: 10vh;
+    /* border: 5px solid brown; */
+}
+
+.nav-cont {
+    /* border: 1px solid red; */
+    width: 50%;
+    position: relative;
+    left: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-cont ul {
+    /* border: 1px solid green; */
+    width: 100% !important;
+    display: flex;
+    position: relative;
+    top: 1vh;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav-cont ul li {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav-cont ul li a {
+    color: #fff;
+    /* background: rgba(255, 255, 255, 0.2); */
+    padding: 4px 6px;
+    border-radius: 5px;
+    transition: .3s;
+}
+
+.nav-cont ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 4px 6px;
+    border-radius: 5px;
+}
+
+.footer {
+    height: 50vh;
+    /* border-top: 1px solid plum; */
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-content {
+    height: 40vh;
+    /* border: 1px solid red; */
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-content a {
+    background: plum;
+    color: #fff;
+    padding: 10px 12px;
+    border-radius: 5px;
+    border: 1px solid plum;
+    cursor: pointer;
+}

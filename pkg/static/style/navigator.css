@@ -1,0 +1,64 @@
+.navigator {
+    height: 15vh;
+    /* border: 1px solid white; */
+    width: 70%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    position: relative;
+    top: 80vh;
+    left: 15%;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, .5);
+    display: flex;
+}
+
+.logo {
+    width: 10%;
+    border-right: 1px solid rgb(65, 62, 65);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo a {
+    color: plum;
+    font-size: 4em;
+}
+
+@keyframes rotate {
+    0% {
+       transform: rotate(0deg);
+    }
+    100% {
+       transform: rotate(360deg);
+    }
+}
+
+.logo a:hover {
+    color: plum;
+    font-size: 4em;
+    animation: rotate 1s linear infinite;
+    transition: .5s;
+}
+
+.navs {
+    height: inherit;
+    /* border: 1px solid red; */
+    width: 100%;
+}
+
+.navs ul {
+    height: inherit;
+    width: inherit;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navs ul svg {
+    height: 30px;
+    width: 30px;
+}
+
+.navs a.active svg {
+    color: plum !important;
+}

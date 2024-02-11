@@ -1,0 +1,121 @@
+.main {
+    height: max-content;
+    background-color: #56666B;
+    padding: 10px 0 !important;
+    margin: 0 !important;
+}
+
+.container {
+    height: max-content;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-cont {
+    width: 50%;
+    border: 1px solid grey;
+    padding: 20px 30px 20px 0;
+    border-radius: 10px;
+    /* box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px; */
+    transition: .9s;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+form input,
+form textarea {
+    width: 100% !important;
+    /* padding: 10px !important; */
+    margin-bottom: 20px !important;
+    border: 1px solid #F8F9FA !important;
+    background-color: #F8F9FA !important;
+    color: black !important;
+    border-radius: 5px !important;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+}
+
+form input:focus,
+form textarea:focus {
+    border: 1px solid #F8F9FA !important;
+    background-color: #F8F9FA !important;
+}
+
+.form-head {
+    position: relative;
+    /* left: 15%; */
+}
+.form-head h2 {
+    position: relative;
+    left: 10%;
+    font-weight: bolder;
+}
+
+.main-head {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-head h1 {
+    color: plum;
+    font-weight: bolder;
+}
+
+.social-others {
+    width: 50%;
+    border-left: 2px solid plum;
+    height: max-content;
+    border: 1px solid grey;
+    margin-left: 2%;
+    padding: 20px 0;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.social-others .head {
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.social-others .head h3, p {
+    text-align: left !important;
+    position: relative;
+    left: 10%;
+}
+
+.social-media {
+    position: relative;
+    left: 10%;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.social-media a {
+    margin: 3vh 0;
+}
+
+.social-media span {
+    position: relative;
+    left: 2%;
+    color: plum;
+    font-weight: bolder;
+}
+
+.map {
+    width: 80%;
+    border: 1px solid grey;
+    height: 70vh;
+    position: relative;
+    left: 10%;
+    margin-top: 5vh;
+    border-radius: 10px;
+}
+
+.map iframe {
+    height: inherit;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
