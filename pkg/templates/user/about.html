@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="{{url_for('static', filename='style/about.css')}}" type="text/css">
 {% endblock maincss %}
 
+{%block about_active%}active{%endblock%}
+
 {% block content %} 
 
     <div class="main">
@@ -104,9 +106,9 @@
                     </p>
 
                     
-                    <div class="song" style="position: relative; width: 100%; top: 2vh; margin-bottom: 2vh;">
+                    {#<div class="song" style="position: relative; width: 100%; top: 2vh; margin-bottom: 2vh;">
                         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2K7sv1mno9PvbXVBpqvSKn?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                    </div>
+                    </div>#}
 
                 </div>
             </div>

@@ -4,5 +4,8 @@
     {{super()}}
 {% endblock title %}
 
+{%block portfolio_active%}active{%endblock%}
+
 {% block content %}
+    {% include "user/coming_soon.html" %}
 {% endblock content %}

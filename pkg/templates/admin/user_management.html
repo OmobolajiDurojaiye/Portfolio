@@ -4,25 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Management</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='user_management.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='style/user_management.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='vendor/bootstrap/css/bootstrap.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style/animate.min.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@100&family=Poiret+One&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="57x57" href="{{url_for('static', filename='apple-icon-57x57.png')}}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{url_for('static', filename='apple-icon-60x60.png')}}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{url_for('static', filename='apple-icon-72x72.png')}}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{url_for('static', filename='apple-icon-76x76.png')}}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{url_for('static', filename='apple-icon-114x114.png')}}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{url_for('static', filename='apple-icon-120x120.png')}}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{url_for('static', filename='apple-icon-144x144.png')}}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{url_for('static', filename='apple-icon-152x152.png')}}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static', filename='apple-icon-180x180.png')}}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{{url_for('static', filename='android-icon-192x192.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{url_for('static', filename='favicon-96x96.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='favicon-16x16.png')}}">
+    <link rel="manifest" href="{{url_for('static', filename='manifest.json')}}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 </head>
 <body>
-    {#{% for users in user %}
-        {% if users %}
-            <ul>
-                <li>
-                    {{users.users_fullname}} with <i style="font-weight: bolder;">{{users.users_email}}</i> 
-                </li>
-            </ul>
-        {% else %}
-            <p>
-                No users currently
-            </p>
-        {% endif %}
-    {% endfor %}#}
-
     <div class="container">
-        
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert alert-success mt-3" role="alert" style="text-align: center !important; width: 40%; position: relative; left: 30%;">
+                    {{ messages[0] }}
+                </div>
+            {% endif %}
+        {% endwith %}
+        <h2>User Management</h2>
+
+        {% if user %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Message</th>
+                        <th>Time Sent</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for u in user %}
+                        <tr>
+                            <td>{{ u.users_fullname }}</td>
+                            <td>{{ u.users_email }}</td>
+                            <td>{{ u.message }}</td>
+                            <td>{{ u.time_sent.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                            <td>
+                                <form action="{{ url_for('send_message', user_id=u.users_id) }}" method="post">
+                                    <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+                                    <textarea name="message_content" placeholder="Type your message"></textarea>
+                                    <button type="submit">Send Message</button>
+                                </form>
+                                <form class="mt-2" action="{{ url_for('delete_user', user_id=u.users_id) }}" method="post">
+                                    <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+                                    <button class="btn btn-danger" type="submit">Delete User</button>
+                                </form>
+                            </td>   
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p style="color: #fff;">No users currently</p>
+        {% endif %}
     </div>
 </body>
 </html>

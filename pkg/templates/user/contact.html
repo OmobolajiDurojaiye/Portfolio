@@ -4,6 +4,8 @@
     {{super()}}
 {% endblock title %}
 
+{%block contact_active%}active{%endblock%}
+
 {% block maincss %}
     <link rel="stylesheet" href="{{url_for('static', filename='style/contact.css')}}" type="text/css">
 {% endblock maincss %}
