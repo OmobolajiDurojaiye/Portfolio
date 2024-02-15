@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for, redirect, request, session, flash
 from pkg import app, mail
-from pkg.models import User, db
+from pkg.models import User, db, Admin
 from flask_mail import Message
 
 # ...
@@ -49,3 +49,25 @@ def delete_user(user_id):
     db.session.commit()
     flash("User deleted successfully")
     return redirect(url_for('user_management'))
+
+@app.route('/admin/login/', methods=['GET', 'POST'])
+def admin_login():
+    if request.method == 'GET':
+        return render_template('admin/admin_login.html')
+    else:
+        username = request.form.get('adminusername')
+        password = request.form.get('adminpwd')
+
+        admin = db.session.query(Admin).filter(Admin.admin_username == username).first()
+        if admin and admin.admin_password == password:
+            session['adminonline'] = admin.id
+            flash("Welcome", category="success")
+            return redirect('/user_management/')
+        else:
+            flash("Invalid credentials", category="error")
+            return redirect('/admin/login/')
+        
+@app.route('/adminlogout/')
+def adminlogout():
+    session.pop('adminonline', None)
+    return redirect('/admin/login/')

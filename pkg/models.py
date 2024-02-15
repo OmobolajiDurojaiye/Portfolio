@@ -10,3 +10,9 @@ class User(db.Model):
     users_email = db.Column(db.String(50), nullable=False)
     message = db.Column(db.Text, nullable=False)
     time_sent = db.Column(db.DateTime(), default=datetime.utcnow)
+
+
+class Admin(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    admin_username = db.Column(db.String(50), unique=True, nullable=False)
+    admin_password = db.Column(db.String(100), nullable=False)

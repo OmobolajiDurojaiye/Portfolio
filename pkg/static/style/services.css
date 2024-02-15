@@ -1,0 +1,91 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.main {
+    height: max-content;
+    padding: 10px;
+    background-color: #56666B;
+}
+
+.container {
+    height: max-content;
+    padding: 5vh 0;
+    border: 1px solid grey;
+    border-radius: 20px;
+}
+
+.head h2 {
+    color: plum;
+    font-weight: bolder;
+}
+
+.services {
+    height: max-content;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+}
+
+.box {
+    height: 70vh;
+    width: 30%;
+    /* border: 1px solid #fff; */
+    margin: 2vh;
+    border-radius: 20px;
+    transition: .5s;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.image-cont {
+    height: 15vh;
+    /* border-bottom: 1px solid red; */
+}
+
+.box .image {
+    position: relative;
+    left: 10%;
+    top: 5vh;
+    width: 70px;
+    height: 70px;
+    /* border-bottom: 1px solid whitesmoke; */
+}
+
+.box .image img {
+    width: 100%;
+    height: inherit;
+}
+
+.content {
+    height: 50vh;
+    /* border: 1px solid green; */
+    padding: 5vh;
+}
+
+.content p {
+    width: 100%;
+    padding: 0 !important;
+}
+
+.content h2 {
+    font-weight: bolder;
+    margin-bottom: 2vh;
+}
+
+.skills {
+    display: flex;
+    height: 15vh;
+    justify-content: space-around;
+    align-items: center;
+    /* border: 1px solid red; */
+    margin: 2vh 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.skills img {
+    height: 40px;
+    width: 40px;
+}

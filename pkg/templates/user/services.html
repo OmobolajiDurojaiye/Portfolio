@@ -3,9 +3,98 @@
     Services |
     {{super()}}
 {% endblock title %}
+{% block maincss %}
+    <link rel="stylesheet" href="{{url_for('static', filename='style/services.css')}}" type="text/css">
+{% endblock maincss %}
 
 {%block services_active%}active{%endblock%}
 
 {% block content %}
-    {% include "user/coming_soon.html" %}
+    <div class="main">
+        <div class="container">
+            <div class="c-head" style="left: 3%; position: relative; width: 50%;">
+                <h2>
+                    Services I Offer
+                </h2>
+                <p>
+                    I help businesses and websites like yours gain more profits and traffic by creating awareness, 
+                    using my Search Engine Optimization [SEO] skill to drive website traffics, 
+                    optimize your website, connect with users and grow overall sales.
+                </p>
+            </div>
+            <div class="services">
+                <div class="box">
+                    <div class="image-cont">
+                        <div class="image">
+                            <img src="{{url_for('static', filename='icons/web.png')}}" alt="">
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h2>
+                            Web Design & <br>
+                            Development
+                        </h2>
+
+                        <p>
+                            I make modern, user-friendly websites that ook great and function
+                            perfectly accross all devices, designed to meet your specific business needs.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="image-cont">
+                        <div class="image">
+                            <img src="{{url_for('static', filename='icons/seo.png')}}" alt="">
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h2>
+                            Search Engine Optimization (SEO)
+                        </h2>
+
+                        <p>
+                            I make modern, user-friendly websites that ook great and function
+                            perfectly accross all devices, designed to meet your specific business needs.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="image-cont">
+                        <div class="image">
+                            <img src="{{url_for('static', filename='icons/online-store.png')}}" alt="">
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h2>
+                            Ecommerce
+                        </h2>
+
+                        <p>
+                            I make modern, user-friendly websites that ook great and function
+                            perfectly accross all devices, designed to meet your specific business needs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-head">
+                <h2 style="position: relative; left: 2%; margin-top: 5vh;">
+                    My Skill Set &#128071;
+                </h2>
+            </div>
+            <div class="skills">
+                <img src="{{url_for('static', filename='icons/html.png')}}" alt="">
+                <img src="{{url_for('static', filename='icons/css-3.png')}}" alt="">
+                <img src="{{url_for('static', filename='icons/java-script.png')}}" alt="">
+                <img src="{{url_for('static', filename='icons/python.png')}}" alt="">
+                <img src="{{url_for('static', filename='icons/flask.png')}}" alt="">
+                <img src="{{url_for('static', filename='icons/bootstrap.png')}}" alt="">
+                <img src="{{url_for('static', filename='icons/mysql.png')}}" alt="">
+                <img src="{{url_for('static', filename='icons/seo-search-symbol.png')}}" alt="">
+                <img src="{{url_for('static', filename='icons/github.png')}}" alt="">
+            </div>
+        </div>
+    </div>
 {% endblock content %}
