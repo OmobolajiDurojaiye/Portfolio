@@ -11,10 +11,9 @@ def user_management():
         users = User.query.all()
         return render_template('admin/user_management.html', user=users)
     elif request.method == 'POST':
-        # Handle form submissions or any other POST logic if needed
         pass
 
-@app.route('/send_message/<int:user_id>', methods=['GET', 'POST'])
+@app.route('/send_message/<int:user_id>', methods=['POST'])
 def send_message(user_id):
     user = User.query.get(user_id)
     if not user:
@@ -41,8 +40,6 @@ def send_message(user_id):
 
         return redirect(url_for('user_management'))
 
-    return render_template('send_message_form.html', user=user)
-
 
 
 @app.route('/delete_user/<int:user_id>', methods=['POST'])
@@ -50,4 +47,5 @@ def delete_user(user_id):
     user_to_delete = User.query.get_or_404(user_id)
     db.session.delete(user_to_delete)
     db.session.commit()
+    flash("User deleted successfully")
     return redirect(url_for('user_management'))
