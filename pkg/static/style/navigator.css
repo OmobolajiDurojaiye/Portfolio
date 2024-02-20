@@ -62,3 +62,41 @@
 .navs a.active svg {
     color: plum !important;
 }
+
+
+@media (max-width: 768px) {
+    .navigator {
+        top: 90vh;
+        bottom: 0;
+        padding: 0;
+        margin: 0;
+        position: relative;
+        height: 10vh;
+        background: rgba(0, 0, 0, 0.5);
+        left: 0;
+        width: 100% !important;
+        /* border: 1px solid white; */
+        border-radius: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navs ul li {
+        position: relative;
+        left: 0%;
+        width: 100%;
+    }
+
+    .logo {
+        display: none; 
+        justify-content: center;
+        align-items: center;
+        border: none !important;
+        /* width: 100%; */
+    }
+
+    .logo a {
+        display: none !important;
+    }
+}

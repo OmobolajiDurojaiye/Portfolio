@@ -1,6 +1,6 @@
 .main {
     height: max-content;
-    background-color: #56666B;
+    background-color: #1B1B1B;
     padding: 10px 0 !important;
     margin: 0 !important;
 }
@@ -118,4 +118,31 @@ form textarea:focus {
     width: 100%;
     border-radius: 10px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .form-cont {
+        width: 100% !important;
+        position: relative !important;
+        /* left: 5% !important; */
+        padding: 5vh 2% !important;
+    }
+
+    .social-others {
+        margin-left: 0 !important;
+        width: 100% !important;
+        position: relative !important;
+        margin-top: 2vh;
+    }
+
+    .map {
+        width: 90%;
+        position: relative;
+        left: 5%;
+    }
+    
 }

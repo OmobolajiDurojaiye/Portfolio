@@ -33,6 +33,7 @@ body {
 
 .head-section h2 {
     font-size: 3em;
+    /* font-weight: bolder; */
 }
 
 .intro {
@@ -54,6 +55,7 @@ body {
 
 .social {
     top: 0;
+    bottom: 5vh !important;
     /* border: 1px solid red; */
     height: max-content;
     width: max-content;
@@ -140,4 +142,32 @@ form button {
     background: rgba(255, 255, 255, 0.2);
     padding: 4px 6px;
     border-radius: 5px;
+}
+
+.text {
+    position: relative;
+    left: 5%;
+    top: 2vh;
+    /* border: 5px solid red; */
+    height: max-content;
+    width: 40%;
+    /* border-radius: 20px; */
+}
+
+/* 
+.profile-pic p {
+    font-weight: bold;
+} */
+
+@media (max-width: 768px) {
+
+    .head-section {
+        font-size: 0.5em;
+    }
+
+    .text {
+        position: relative;
+        width: 90%;
+        bottom: 20vh;
+    }
 }

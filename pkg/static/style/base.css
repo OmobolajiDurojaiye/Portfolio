@@ -20,6 +20,7 @@ body {
 
 .profile {
     height: 30vh;
+    width: 100%;
     /* border: 1px solid green; */
     display: flex;
 }
@@ -28,8 +29,8 @@ body {
     height: 20vh;
     position: relative;
     /* border: 1px solid blue; */
-    width: 30%;
-    left: 5%;
+    width: 100%;
+    /* left: 5%; */
     top: 5vh;
     display: flex;
     flex-direction: column;
@@ -37,15 +38,17 @@ body {
 
 .pro-pic-name {
     display: flex;
+    width: 100%;
+    /* border: 1px solid red; */
 }
 
 .pic {
-    height: 10vh;
+    height: 80px;
     /* border: 1px solid red; */
-    width: 15%;
+    width: 80px;
     border-radius: 50%;
     position: relative;
-    margin-right: 5%;
+    /* margin-right: 5%; */
 }
 
 .pic img {
@@ -56,7 +59,7 @@ body {
 
 .name {
     /* border: 1px solid green; */
-    width: 80%;
+    width: max-content;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -66,18 +69,18 @@ body {
     font-size: 1.5em;
 }
 
-.profile-action {
+/* .profile-action {
     height: 15vh;
     position: relative;
     top: 5vh;
-    /* border: 1px solid purple; */
+    border: 1px solid purple;
     width: 20%;
     left: 45%;
-}
+} */
 
 .social {
     position: relative;
-    top: 5vh !important;
+    top: 2vh !important;
 }
 
 .social svg {
@@ -156,4 +159,21 @@ body {
     border-radius: 5px;
     border: 1px solid plum;
     cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .profile {
+        width: 100% !important;
+        /* border: 1px solid red; */
+    }
+
+    .pro-pic-name {
+        /* border: 1px solid green; */
+        width: 100% !important;
+    }
+
+    .pic {
+        width: 50px !important;
+        height: 50px;
+    }
 }

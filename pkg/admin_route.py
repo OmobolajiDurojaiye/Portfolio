@@ -1,12 +1,15 @@
 from flask import Flask, render_template, url_for, redirect, request, session, flash
 from pkg import app, mail
-from pkg.models import User, db, Admin
+from pkg.models import User, db, Admin, Portfolio, SocialMedia
 from flask_mail import Message
 
-# ...
 
 @app.route('/user_management/', methods=['GET', 'POST'])
 def user_management():
+    online = session.get('adminonline')
+    if not online:
+        return redirect('/admin/login/')
+
     if request.method == 'GET':
         users = User.query.all()
         return render_template('admin/user_management.html', user=users)
@@ -71,3 +74,58 @@ def admin_login():
 def adminlogout():
     session.pop('adminonline', None)
     return redirect('/admin/login/')
+
+@app.route('/admin/form/', methods=['POST', 'GET'])
+def admin_form():
+    if request.method == 'GET':
+        id = session.get('adminonline')
+        social = SocialMedia.query.get(id)
+        return render_template('admin/admin_form.html', social=social)
+    else:
+        github_url = request.form.get('github-url')
+        live_url = request.form.get('live-url')
+        site_desc = request.form.get('site-desc')
+        # site_pic = request.files.get("site-image")
+
+        if github_url != '' or site_desc != '':
+            port = Portfolio(
+                github_url = github_url,
+                live_url = live_url,
+                port_desc = site_desc
+            )
+
+            db.session.add(port)
+            db.session.commit()
+            flash('Inserted successfully')
+            return redirect('/admin/form/')
+        else:
+            flash("No field should be empty")
+            return redirect('/admin/form/')
+        
+@app.route('/admin/social/', methods=['POST', 'GET'])
+def admin_social():
+    if request.method == 'GET':
+        social = SocialMedia.query.get()
+        return render_template('admin/admin_form.html', social=social)  
+    else:
+        x = request.form.get('x-url')
+        github = request.form.get('github-url')
+        linkedin = request.form.get('linkedin-url')
+        instagram = request.form.get('instagram-url')
+        thread = request.form.get('thread-url')
+
+        if x != '' or github != '' or linkedin != '' or instagram != '' or thread != '':
+            social = SocialMedia(
+                x_url = x,
+                github_url = github,
+                linkedin_url = linkedin,
+                instagram = instagram,
+                thread = thread
+            )
+            db.session.add(social)
+            db.session.commit()
+            flash('Inserted successfully')
+            return redirect('/admin/form/')
+        else:
+            flash("No field should be empty")
+            return redirect('/admin/form/')

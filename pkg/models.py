@@ -16,3 +16,18 @@ class Admin(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     admin_username = db.Column(db.String(50), unique=True, nullable=False)
     admin_password = db.Column(db.String(100), nullable=False)
+
+class Portfolio(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    github_url = db.Column(db.String(100), nullable=False)
+    live_url = db.Column(db.String(100), nullable=True)
+    port_desc = db.Column(db.Text, nullable=False)
+    site_pic = db.Column(db.String(225), nullable=True)
+
+class SocialMedia(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    x_url = db.Column(db.String(255), nullable=True)
+    github_url = db.Column(db.String(255), nullable=True)
+    linkedin_url = db.Column(db.String(255), nullable=True)
+    instagram = db.Column(db.String(255), nullable=True)
+    thread = db.Column(db.String(255), nullable=True)

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style/admin_form.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='vendor/bootstrap/css/bootstrap.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style/animate.min.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@100&family=Poiret+One&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="57x57" href="{{url_for('static', filename='apple-icon-57x57.png')}}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{url_for('static', filename='apple-icon-60x60.png')}}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{url_for('static', filename='apple-icon-72x72.png')}}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{url_for('static', filename='apple-icon-76x76.png')}}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{url_for('static', filename='apple-icon-114x114.png')}}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{url_for('static', filename='apple-icon-120x120.png')}}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{url_for('static', filename='apple-icon-144x144.png')}}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{url_for('static', filename='apple-icon-152x152.png')}}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static', filename='apple-icon-180x180.png')}}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{{url_for('static', filename='android-icon-192x192.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{url_for('static', filename='favicon-96x96.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='favicon-16x16.png')}}">
+    <link rel="manifest" href="{{url_for('static', filename='manifest.json')}}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+    <form action="/admin/form/" method="post" enctype="multipart/form-data">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert alert-success mt-3" role="alert" style="text-align: center !important; width: 40%; position: relative; left: 30%;">
+                    {{ messages[0] }}
+                </div>
+            {% endif %}
+        {% endwith %}
+        <h2>
+            Portfolio Credentials
+            <a style="color: plum; text-decoration: none; font-size: 0.5em; position: relative; left: 30%;" href="/user_management/">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                </svg>
+            </a>
+        </h2>
+        <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+        <div class="form-v mb-3">
+            <label>Portforlio GitHub Url</label>
+            <input type="text" class="form-control" name="github-url" placeholder="Github">
+        </div>
+        <div class="form-v mb-3">
+            <label>Portforlio Live Url</label>
+            <input type="text" class="form-control" name="live-url" placeholder="Live">
+        </div>
+        <div class="form-v mb-3">
+            <label class="form-label">Portforlio Description</label>
+            <textarea name="site-desc" class="form-control" name="site-desc" cols="30" rows="2" placeholder="Description"></textarea>
+        </div>
+        {#<div class="form-v mb-3">
+            <label class="form-label">Portforlio Image</label>
+            <input type="file" name="site-image" class="form-control">
+        </div>#}
+        <div class="form-v mb-3">
+            <button class="btn">
+                Send
+            </button>
+        </div>
+        
+    </form>
+
+
+    <form action="/admin/social/" method="post" class="mt-5 mb-5" enctype="multipart/form-data">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert alert-success mt-3" role="alert" style="text-align: center !important; width: 40%; position: relative; left: 30%;">
+                    {{ messages[0] }}
+                </div>
+            {% endif %}
+        {% endwith %}
+        <h2>
+            Social Media Credentials
+        </h2>
+        <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+        <div class="form-v mb-3">
+            <label>X Url</label>
+            <input type="text" class="form-control" name="x-url" value="{{social.x_url}}" placeholder="X">
+        </div>
+        <div class="form-v mb-3">
+            <label>GitHub Url</label>
+            <input type="text" class="form-control" name="github-url" value="{{social.github_url}}" placeholder="Github">
+        </div>
+        <div class="form-v mb-3">
+            <label>Linkedin Url</label>
+            <input type="text" class="form-control" name="linkedin-url" value="{{social.linkedin_url}}" placeholder="Linkedin">
+        </div>
+        <div class="form-v mb-3">
+            <label>Instagram Url</label>
+            <input type="text" class="form-control" name="instagram-url" value="{{social.instagram}}" placeholder="Instagram">
+        </div>
+        <div class="form-v mb-3">
+            <label>Thread Url</label>
+            <input type="text" class="form-control" name="thread-url" value="{{social.thread}}" placeholder="Thread">
+        </div>
+        <div class="form-v mb-3">
+            <button class="btn">
+                Send
+            </button>
+        </div>
+        
+    </form>
+</body>
+</html>
