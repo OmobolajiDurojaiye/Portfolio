@@ -58,10 +58,10 @@
             <label class="form-label">Portforlio Description</label>
             <textarea name="site-desc" class="form-control" name="site-desc" cols="30" rows="2" placeholder="Description"></textarea>
         </div>
-        {#<div class="form-v mb-3">
-            <label class="form-label">Portforlio Image</label>
-            <input type="file" name="site-image" class="form-control">
-        </div>#}
+        <div class="form-v mb-3">
+            <label for="site-image" class="form-label">Portfolio Image</label>
+            <input type="file" class="form-control" id="site-image" name="site-image" accept="image/*">
+        </div>        
         <div class="form-v mb-3">
             <button class="btn">
                 Send
@@ -110,5 +110,11 @@
         </div>
         
     </form>
+
+
+    <script src="{{url_for('static', filename='vendor/script/jquery.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/js/theme.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 </body>
 </html>

@@ -47,6 +47,8 @@
     height: 50%;
     /* border: 1px solid red; */
     padding: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 .box .desc a {
@@ -57,6 +59,7 @@
     color: white;
     text-decoration: none;
     margin-right: 3%;
+    width: max-content !important;
 }
 
 @media (max-width: 768px) {
@@ -70,5 +73,9 @@
         position: relative;
         /* left: 5%; */
         margin: 0 0 4% 0 !important;
+    }
+
+    .container {
+        padding: 20px !important;
     }
 }

@@ -170,4 +170,12 @@ form button {
         width: 90%;
         bottom: 20vh;
     }
+
+    .active {
+        background: none !important;
+        padding: 0 !important;
+        border-radius: none;
+        font-weight: bolder;
+        color: plum !important;
+    }
 }

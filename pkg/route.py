@@ -53,13 +53,17 @@ def contact():
         email = request.form.get('email')
         message = request.form.get('description')
 
-        user = User(
-            users_fullname = fullname,
-            users_email = email,
-            message = message
-        )
+        if fullname != '' or email != '' or message != '':
+            user = User(
+                users_fullname = fullname,
+                users_email = email,
+                message = message
+            )
 
-        db.session.add(user)
-        db.session.commit()
-        flash('Your message has been sent successfully', 'success')
-        return redirect('/contact')
+            db.session.add(user)
+            db.session.commit()
+            flash('Your message has been sent successfully', 'success')
+            return redirect('/contact')
+        else:
+            flash('No field should be left empty', 'success')
+            return redirect('/contact')

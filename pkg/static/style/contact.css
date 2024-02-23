@@ -6,15 +6,18 @@
 }
 
 .container {
+    width: 100%;
     height: max-content;
     display: flex;
     justify-content: space-between;
+    /* border: 1px solid saddlebrown; */
 }
 
 .form-cont {
     width: 50%;
     border: 1px solid grey;
     padding: 20px 30px 20px 0;
+    /* border: 3px solid red; */
     border-radius: 10px;
     /* box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px; */
     transition: .9s;
@@ -41,12 +44,18 @@ form textarea:focus {
 
 .form-head {
     position: relative;
-    /* left: 15%; */
+    /* border: 2px solid green; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
-.form-head h2 {
+
+.form-head h2, p {
     position: relative;
-    left: 10%;
     font-weight: bolder;
+    /* border: 2px solid purple; */
 }
 
 .main-head {
@@ -76,12 +85,13 @@ form textarea:focus {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    /* border: 1px solid plum; */
+    padding: 0 10%;
 }
 
 .social-others .head h3, p {
     text-align: left !important;
     position: relative;
-    left: 10%;
 }
 
 .social-media {

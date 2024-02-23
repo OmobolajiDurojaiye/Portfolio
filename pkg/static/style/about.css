@@ -111,3 +111,30 @@
     /* border: 1px solid green; */
     padding: 0 10%;
 }
+
+@media (max-width: 768px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about-content {
+        width: 100%;
+    } 
+
+    .head {
+        margin: 0 !important;
+        padding: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .head h2 {
+        text-align: center;
+    }
+
+    .aboutme h3 {
+        padding-top: 3vh;
+    }
+}

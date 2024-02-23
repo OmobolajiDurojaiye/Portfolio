@@ -1,7 +1,14 @@
+import os, random, string
+from werkzeug.utils import secure_filename
 from flask import Flask, render_template, url_for, redirect, request, session, flash
 from pkg import app, mail
 from pkg.models import User, db, Admin, Portfolio, SocialMedia
 from flask_mail import Message
+
+ALLOWED_EXTENSIONS = {'jpg', 'jpeg', 'png'}
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
 @app.route('/user_management/', methods=['GET', 'POST'])
@@ -75,6 +82,7 @@ def adminlogout():
     session.pop('adminonline', None)
     return redirect('/admin/login/')
 
+
 @app.route('/admin/form/', methods=['POST', 'GET'])
 def admin_form():
     if request.method == 'GET':
@@ -85,13 +93,22 @@ def admin_form():
         github_url = request.form.get('github-url')
         live_url = request.form.get('live-url')
         site_desc = request.form.get('site-desc')
-        # site_pic = request.files.get("site-image")
+        
+        site_pic = request.files.get('site-image')
+        if site_pic and allowed_file(site_pic.filename):
+            filename = secure_filename(site_pic.filename)
+
+            final_name = os.path.join("pkg/static/uploads/", filename)
+            site_pic.save(final_name)
+        else:
+            flash('Invalid file format or no file provided')
 
         if github_url != '' or site_desc != '':
             port = Portfolio(
-                github_url = github_url,
-                live_url = live_url,
-                port_desc = site_desc
+                github_url=github_url,
+                live_url=live_url,
+                port_desc=site_desc,
+                site_pic=filename 
             )
 
             db.session.add(port)
@@ -101,13 +118,14 @@ def admin_form():
         else:
             flash("No field should be empty")
             return redirect('/admin/form/')
-        
+
+
 @app.route('/admin/social/', methods=['POST', 'GET'])
 def admin_social():
     if request.method == 'GET':
-        social = SocialMedia.query.get()
+        social = SocialMedia.query.first()  # Assuming there's only one record in the SocialMedia table
         return render_template('admin/admin_form.html', social=social)  
-    else:
+    elif request.method == 'POST':
         x = request.form.get('x-url')
         github = request.form.get('github-url')
         linkedin = request.form.get('linkedin-url')
@@ -115,17 +133,20 @@ def admin_social():
         thread = request.form.get('thread-url')
 
         if x != '' or github != '' or linkedin != '' or instagram != '' or thread != '':
-            social = SocialMedia(
-                x_url = x,
-                github_url = github,
-                linkedin_url = linkedin,
-                instagram = instagram,
-                thread = thread
-            )
+            social = SocialMedia.query.first()
+            if not social:
+                social = SocialMedia()
+
+            social.x_url = x
+            social.github_url = github
+            social.linkedin_url = linkedin
+            social.instagram = instagram
+            social.thread = thread
+
             db.session.add(social)
             db.session.commit()
-            flash('Inserted successfully')
-            return redirect('/admin/form/')
+            flash('Updated successfully')
+            return redirect('/admin/social/')
         else:
             flash("No field should be empty")
-            return redirect('/admin/form/')
+            return redirect('/admin/social/')
