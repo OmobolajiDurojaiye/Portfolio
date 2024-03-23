@@ -1,0 +1,38 @@
+{% extends "user/base.html" %}
+
+{% block content %} 
+    <style>
+        .notfound {
+            position: relative;
+            height: max-content;
+            width: 100%;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: center !important;
+            padding: 5% 2%;
+            background-color: #1B1B1B !important;
+        }
+
+        .notfound a {
+            background: plum;
+            color: #fff;
+            padding: 10px 12px;
+            border-radius: 5px;
+            border: 1px solid plum;
+            cursor: pointer;
+        }
+    </style>
+
+    <div class="notfound">
+        <h2 style="font-size: 4em;">
+            PAGE NOT FOUND!
+        </h2>
+        <p class="mt-5">
+            Ooops!... The page you're looking for does not exist on this site
+        </p>
+        <a href="/">
+            Go home
+        </a>
+    </div>
+{% endblock content %}

@@ -38,7 +38,8 @@
     margin: 2vh;
     border-radius: 20px;
     transition: .5s;
-    background-color: #aaaaaa;
+    background-color: #e2dddd;
+    /* background-color: #4D4947; */
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
@@ -90,9 +91,48 @@
     background: rgba(255, 255, 255, 0.3);
 }
 
+
 .skills img {
     height: 40px;
     width: 40px;
+}
+
+.latest-articles {
+    padding: 2%;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+
+.latest-articles a {
+    color: rgb(177, 28, 177); 
+    text-decoration: none;
+    background-color: #f0f0f0;
+    padding: 8px 16px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.latest-articles a:hover {
+    background-color: #e0e0e0;
+    color: rgb(122, 10, 122);
+}
+
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.content p {
+    width: 100%;
+    padding: 0 !important;
+    color: #1b1b1b !important;
 }
 
 @media (max-width: 768px) {

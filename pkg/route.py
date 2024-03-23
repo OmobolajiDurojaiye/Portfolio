@@ -2,6 +2,10 @@ from flask import Flask, render_template, url_for, redirect, request, session, f
 from pkg import app
 from pkg.models import User, db, Portfolio, SocialMedia
 
+@app.errorhandler(404)
+def not_found_error(error):
+    return render_template('page404.html')
+
 @app.route('/', methods= ['POST', 'GET'])
 def index():
     if request.method == 'GET':

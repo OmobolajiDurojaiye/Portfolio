@@ -13,13 +13,6 @@
 {% block content %} 
 
     <div class="main">
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                <div class="alert alert-success mt-3" role="alert">
-                    {{ messages[0] }}
-                </div>
-            {% endif %}
-        {% endwith %}
         <div class="main-head m-3">
             <h1>
                 Contact
@@ -28,6 +21,13 @@
         <div class="container">
             <div class="form-cont">
                 <div class="form-head">
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            <div class="alert alert-secondary mt-3" style="width: max-content;" role="alert">
+                                {{ messages[0] }}
+                            </div>
+                        {% endif %}
+                    {% endwith %}
                     <h2>
                         Get In Touch
                     </h2>
@@ -121,7 +121,7 @@
     <script src="{{url_for('static', filename='vendor/script/jquery.js')}}"></script>
     <script>
         function validateForm() {
-            $(".error-message").text("");  // Clear all error messages
+            $(".error-message").text("");
             $(".form-control").removeClass("error");
 
             var isValid = true;

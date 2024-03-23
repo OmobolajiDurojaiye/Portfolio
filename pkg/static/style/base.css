@@ -3,7 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     text-decoration: none;
-    font-family: 'Catamaran', sans-serif;
+    font-family: "Rubik", sans-serif !important;
 }
 
 body {
@@ -87,7 +87,7 @@ body {
 
 .social {
     position: relative;
-    top: 2vh !important;
+    top: 4vh !important;
 }
 
 .social svg {
@@ -169,6 +169,11 @@ body {
 }
 
 @media (max-width: 768px) {
+    .social {
+        top: 5vh !important;
+        left: 10%;
+    }
+
     .name p {
         font-size: 1.2em;
         padding-left: 2% !important;

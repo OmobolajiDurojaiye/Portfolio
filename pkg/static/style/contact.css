@@ -67,6 +67,7 @@ form textarea:focus {
 .main-head h1 {
     color: plum;
     font-weight: bolder;
+    font-family: "Roboto Mono", monospace;
 }
 
 .social-others {
