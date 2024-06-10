@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for, redirect, request, session, flash
 from pkg import app
 from pkg.models import User, db, Portfolio, SocialMedia
+from datetime import datetime
 
 @app.errorhandler(404)
 def not_found_error(error):
@@ -43,7 +44,8 @@ def services():
 def portfolio():
     social = db.session.query(SocialMedia).first()
     ports = db.session.query(Portfolio).all()
-    return render_template('user/portfolio.html', ports=ports, social=social)
+    current_date = datetime.now().strftime('%Y-%m-%d')
+    return render_template('user/portfolio.html', ports=ports, social=social, current_date=current_date)
 
     
 

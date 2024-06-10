@@ -98,10 +98,12 @@
 }
 
 .latest-articles {
-    padding: 2%;
+    height: max-content;
+    padding: 5%;
+    /* border: 1px solid #1B1B1B; */
     width: 100%;
     overflow: hidden;
-    white-space: nowrap;
+    white-space: wrap;
     position: relative;
 }
 
@@ -113,6 +115,7 @@
     border-radius: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease, color 0.3s ease;
+    white-space: nowrap;
 }
 
 .latest-articles a:hover {
@@ -121,7 +124,7 @@
 }
 
 
-.carousel {
+.link {
     display: flex;
     transition: transform 0.5s ease;
     justify-content: center;
@@ -130,8 +133,8 @@
 
 
 .content p {
-    width: 100%;
-    padding: 0 !important;
+    /* width: 100%; */
+    padding: 2px !important;
     color: #1b1b1b !important;
 }
 

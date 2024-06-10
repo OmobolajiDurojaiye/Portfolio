@@ -9,7 +9,7 @@
 }
 
 body {
-    height: max-content;
+    height: 100vh;
     background-color: #141414 !important;
     /* background-image: url("../images/Wizkid spiderverse.jpg"); */
     background-position: center;
